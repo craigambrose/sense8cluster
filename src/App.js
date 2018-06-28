@@ -1,5 +1,14 @@
 import React, { Component } from "react"
 import "./App.css"
+import FacebookLogin from "react-facebook-login/dist/facebook-login-render-props"
+
+const responseFacebook = response => {
+  console.log("facebook response", response)
+}
+
+const componentClicked = event => {
+  console.log("clicked", event)
+}
 
 class App extends Component {
   render() {
@@ -15,9 +24,21 @@ class App extends Component {
             </p>
             <hr className="my-4" />
             <p className="button-list">
-              <a className="btn btn-dark btn-lg" href="#" role="button">
-                Activate Psycellium
-              </a>
+              <FacebookLogin
+                appId="1904644719557229"
+                autoLoad={false}
+                fields="name,email,picture"
+                onClick={componentClicked}
+                callback={responseFacebook}
+                render={renderProps => (
+                  <button
+                    className="btn btn-dark btn-lg"
+                    onClick={renderProps.onClick}
+                  >
+                    Activate Psycellium
+                  </button>
+                )}
+              />
               <a
                 className="btn btn-outline-dark btn-lg"
                 href="https://www.facebook.com/groups/1612660195660988/"
