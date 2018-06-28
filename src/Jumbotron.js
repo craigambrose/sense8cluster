@@ -21,7 +21,11 @@ class Jumbotron extends Component {
           <hr className="my-4" />
           <p className="button-list">
             {user ? (
-              <img src={user.picture.data.url} className="img-button" />
+              <img
+                src={user.picture.data.url}
+                className="img-button"
+                alt={user.name}
+              />
             ) : (
               <LoginButton onLogin={onLogin} />
             )}
