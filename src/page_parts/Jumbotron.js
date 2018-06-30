@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import LoginButton from "./atoms/LoginButton"
+import LoginButton from "../atoms/LoginButton"
 
 class Jumbotron extends Component {
   onResponse = response => {

@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import "./App.css"
-import Jumbotron from "./Jumbotron"
+import Jumbotron from "./page_parts/Jumbotron"
+import JoinForm from "./page_parts/JoinForm"
 
 class App extends Component {
   constructor(props) {
@@ -13,14 +14,15 @@ class App extends Component {
   }
 
   render() {
+    const { user } = this.state
+    const joinFormState = user ? "open" : "closed"
+
     return (
       <div className="App">
-        <Jumbotron onLogin={this.setUser} user={this.state.user} />
-        <section>
-          <div className="container">
-            To get started, edit <code>src/App.js</code> and save to reload.
-          </div>
-        </section>
+        <Jumbotron onLogin={this.setUser} user={user} />
+        <div className={`expanding-container ${joinFormState}-container`}>
+          {user && <JoinForm user={user} />}
+        </div>
       </div>
     )
   }
