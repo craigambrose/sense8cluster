@@ -1,6 +1,6 @@
 import React from "react"
 
-const JoinForm = ({ user }) => {
+const JoinForm = ({ user, onRequestJoin }) => {
   return (
     <section className="dark-section join-form-section">
       <div className="container">
@@ -29,13 +29,12 @@ const JoinForm = ({ user }) => {
         <h2>Ready to try it?</h2>
         <p>If you're sure, lets hit the button below.</p>
         <p>
-          <a
+          <button
             className="btn btn-primary btn-on-dark btn-lg"
-            href="https://www.facebook.com/groups/1612660195660988/"
-            role="button"
+            onClick={() => onRequestJoin(user)}
           >
             Connect me to a Cluster
-          </a>
+          </button>
         </p>
       </div>
     </section>
